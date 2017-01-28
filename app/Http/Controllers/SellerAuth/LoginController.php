@@ -13,12 +13,21 @@ use Auth;
 
 class LoginController extends Controller
 {
-  //Trait
-  use AuthenticatesUsers;
+    //Where to redirect seller after login.
+    protected $redirectTo = '/seller_home';
 
-  //Custom guard for seller
-  protected function guard()
-  {
-    return Auth::guard('web_seller');
-  }
+    //Trait
+    use AuthenticatesUsers;
+
+    //Custom guard for seller
+    protected function guard()
+    {
+      return Auth::guard('web_seller');
+    }
+
+    //Shows seller login form
+    public function showLoginForm()
+    {
+       return view('seller.auth.login');
+    }
 }
