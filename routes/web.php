@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('seller_register', 'SellerAuth\RegisterController@showRegistrationForm');
+Route::post('seller_register', 'SellerAuth\RegisterController@register');
+
+Route::get('/seller_home', function(){
+  return view('seller.home');
+});
