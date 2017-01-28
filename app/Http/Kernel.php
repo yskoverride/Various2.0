@@ -56,5 +56,9 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+
+        //add custom middlewares here as key and value pair.
+         'seller_auth' => \App\Http\Middleware\AuthenticateSeller::class,
+         'seller_guest' => \App\Http\Middleware\RedirectIfSellerAuthenticated::class,
     ];
 }
