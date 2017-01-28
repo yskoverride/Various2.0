@@ -28,6 +28,12 @@ Route::post('seller_register', 'SellerAuth\RegisterController@register');
 Route::get('seller_login', 'SellerAuth\LoginController@showLoginForm');
 Route::post('seller_login', 'SellerAuth\LoginController@login');
 
+//Password reset routes
+Route::get('seller_password/reset', 'SellerAuth\ForgotPasswordController@showLinkRequestForm');
+Route::post('seller_password/email', 'SellerAuth\ForgotPasswordController@sendResetLinkEmail');
+Route::get('seller_password/reset/{token}', 'SellerAuth\ResetPasswordController@showResetForm');
+Route::post('seller_password/reset', 'SellerAuth\ResetPasswordController@reset');
+
 });
 
 
