@@ -45,6 +45,12 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        //Our new custom driver.
+        'web_seller' => [
+            'driver' => 'session',
+            'provider' => 'sellers',
+        ],
     ],
 
     /*
@@ -70,10 +76,11 @@ return [
             'model' => App\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+        //Seller user provider
+         'sellers' => [
+             'driver' => 'eloquent',  //We are using eloquent model
+             'model' => App\Seller::class,
+         ],
     ],
 
     /*
